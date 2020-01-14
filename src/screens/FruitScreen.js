@@ -4,7 +4,7 @@ import FruitComponents from '../components/FruitComponents'
 import { ScrollView } from 'react-native-gesture-handler'
 
 
-const FruitScreen = () => {
+const FruitScreen = ({navigation}) => {
 
     const fruits = [{ title: 'Apple', imageURL: require('../../assets/Apple.jpg') },
     { title: 'Mango', imageURL: require('../../assets/Mango.jpg') },
@@ -32,7 +32,7 @@ const FruitScreen = () => {
                     keyExtractor={({ item }) => item}
                     renderItem={({ item }) => {
                         console.log(item.title)
-                        return <FruitComponents title={item.title} imageURL={item.imageURL} />
+                        return <FruitComponents title={item.title} imageURL={item.imageURL} navigation={navigation} />
                     }}
                 />
 

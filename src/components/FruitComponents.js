@@ -3,9 +3,9 @@ import { View, Text, StyleSheet, Image } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import LargeScreen from './LargeScreen'
 
-const FruitComponents = ({ title, imageURL , navigation }) => {
+const FruitComponents = ({ title, imageURL, navigation }) => {
 
-    const [state, setState] = useState({ height: 200, width: 200 , borderRadius: 10})
+    const [state, setState] = useState({ height: 200, width: 200, borderRadius: 10 })
 
     // let touch = false;
 
@@ -25,16 +25,16 @@ const FruitComponents = ({ title, imageURL , navigation }) => {
 
 
     // if (!touch) {
-        return (
-            <View>
-                <Text style={styles.text}>{title}</Text>
-                <TouchableOpacity onPress={()=>navigation.navigate('LargeImage',{id:imageURL})}
-                // onPressOut={()=>{setState({height:200, width:200})}}
-                >
-                    <Image source={imageURL} style={state} />
-                </TouchableOpacity>
-            </View>
-        )
+    return (
+        <View style={styles.container}>
+            <Text style={styles.text}>{title}</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('LargeImage', { id: imageURL })}
+            // onPressOut={()=>{setState({height:200, width:200})}}
+            >
+                <Image source={imageURL} style={state} />
+            </TouchableOpacity>
+        </View>
+    )
     // } else {
     //     return (
     //     <View>
@@ -46,14 +46,17 @@ const FruitComponents = ({ title, imageURL , navigation }) => {
 
 const styles = StyleSheet.create({
 
-  text:{
-      fontSize: 25,
-      marginTop: 15,
-      fontWeight: 'bold',
-      marginBottom:10
+    text: {
+        fontSize: 25,
+        marginTop: 15,
+        fontWeight: 'bold',
+        marginBottom: 10
 
-  },
-  
+    },
+    container:{
+        flex:1
+    }
+
 })
 
 export default FruitComponents;
